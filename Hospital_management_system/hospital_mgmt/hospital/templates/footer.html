@@ -1,0 +1,75 @@
+<style>
+    .footer{
+        margin-top: 50px;
+    }
+    footer a {
+        color: #999;
+        text-decoration:none;
+      }
+      
+      footer a:hover, footer a:focus {
+        color: #aaa;
+        text-decoration:none;
+        border-bottom:1px dotted #999;
+      }
+      
+      footer .form-control {
+          background-color: #1f2022;
+          box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+          border: none;
+          resize: none;
+          color: #d1d2d2;
+          padding: 0.7em 1em;
+      }
+</style>
+
+<footer class=" container-fluid footer navbar-dark bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 py-2">
+                <h5 class="text-white"><i class="fa fa-road"></i> ACME CO INC.</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="">Product</a></li>
+                            <li><a href="">Benefits</a></li>
+                            <li><a href="">Partners</a></li>
+                            <li><a href="">Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="">Documentation</a></li>
+                            <li><a href="">Support</a></li>
+                            <li><a href="">Legal Terms</a></li>
+                            <li><a href="">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-2 py-2">
+                <h5 class="text-md-right text-white">Any Suggestion?</h5>
+                <hr>
+            </div>
+            <div class="col-md-5 py-2">
+
+                
+                <form action ="{% url 'suggest' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="ema" name = "ema" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="txt" name="txt" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group text-xs-right">
+                        <button type="submit" class="btn btn-outline-success my-2">Send</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</footer>

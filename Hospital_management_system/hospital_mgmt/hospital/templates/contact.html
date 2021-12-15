@@ -1,0 +1,38 @@
+{% include 'base.html' %}
+{% comment %} {% block contactactive %}active{% endblock contactactive %} {% endcomment %}
+{% include 'navigation.html' %}
+
+
+
+
+<style>
+
+    .mydivstyle:hover {
+        box-shadow: 0 0 20px 0 rgba(0,0,0,3);
+        /* transform : translate Y(-20px); */
+    }
+</style>
+{% block content %}
+
+<div class="container" style="margin: top 50px;">
+    <h1 class="text-center">Contact Us</h1>
+        <div class="row mt-5 text-center">
+          <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="fas fa-phone-square">  Contact</i></h4>
+            <p class="text-danger mt-2 font-weight-bold"><a href="tel:+9779815648745">+9779815648745</a></p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mydivstyle">
+           <h4><i class="fas fa-envelope-square">  Send Email</i></h4>
+           <p class="text-danger mt-2 font-weight-bold"><a href="mailto:basanttimilsaina8@gmail.com">basanttimilsaina8@gmail.com</a></p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="fas fa-address-card">  Office Address</i></h4>
+            <p class="text-danger mt-2 font-weight-bold"><a href="https://www.google.com/maps/place/Basant+Timilsaina/@28.6113234,81.1615978,14.08z/data=!4m5!3m4!1s0x0:0x56f28f86e114dee5!8m2!3d28.6174397!4d81.1500156">Lamki, Kailali</a></p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="fas fa-clock">  Office Time</i></h4>
+            <p class="text-primary mt-2 font-weight-bold">10AM to 5PM</p>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

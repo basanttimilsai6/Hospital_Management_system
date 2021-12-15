@@ -1,0 +1,54 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+<!-- <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      } 
+      </style> -->
+{% block content %}
+
+
+      
+      <h2 class="text-center"><b>View_Doctor</b></h2>
+
+      <table id="example" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>DOCTOR_NAME</th>
+            <th>MOBILE</th>
+            <th>SPECIAL</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in doc %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.special}}</td>
+            <td><a type="button" class="btn btn-outline-danger" href="{% url 'delete_doctor' i.id %}">Delete</a>
+            <a type="button" class="btn btn-outline-primary" href="{% url 'update_doctor' i.id %}">EDIT</a></td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      
+    </table>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

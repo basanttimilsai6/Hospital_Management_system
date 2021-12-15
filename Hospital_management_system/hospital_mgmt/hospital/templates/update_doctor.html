@@ -1,0 +1,45 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+      <div class="container">
+        <h2>UPDATE DOCTOR</h2>
+        <hr>
+        
+         <form action="{{doc.id}}" method = 'POST'>
+         {% csrf_token %}
+         <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" name="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Mobile Number</label>
+            <input type="text" name="mobile" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Specialist</label>
+            <input type="text" name="special" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success my-2">UPDATE</button>
+        
+        </form>
+        </div>
+{% include 'footer.html' %}
+{% endblock content %}

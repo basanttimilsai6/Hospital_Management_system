@@ -1,0 +1,56 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+<!-- <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      } 
+      </style> -->
+{% block content %}
+
+
+      
+      <h2 class="text-center"><b>View_Appointment</b></h2>
+
+      <table id="example" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>DOCTOR_NAME</th>
+            <th>PATIENT_NAME</th>
+            <th>DATE</th>
+            <th>TIME</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in doc %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.doctor}}</td>
+            <td>{{i.patient}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.time}}</td>
+            <td><a type="button" class="btn btn-outline-danger" href="{% url 'delete_appointment' i.id %}">Delete</a>
+            <a type="button" class="btn btn-outline-primary" href="{% url 'update_appointment' i.id %}">EDIT</a></td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      
+    </table>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

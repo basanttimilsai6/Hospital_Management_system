@@ -1,0 +1,43 @@
+{% include "base.html" %}
+{% include "navigation.html" %}
+{% block content %}
+
+{% comment %} {% block loginactive %}active{% endblock loginactive %} {% endcomment %}
+
+
+{% ifequal error 'no' %}
+      <script>
+        alert("logged in successfully");
+        window.location = "{% url "home" %}";
+      </script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+      <script>
+        alert("invalid try again");
+      </script>
+{% endifequal %}
+
+
+
+<div class="container">
+  <h2 class="text-center">Admin Login</h2>
+  
+  
+  <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Username:</label>
+        <input type="text" class="form-control" name="uname" id="uname">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" name="pwd" id="pwd">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+
+{% endblock content %}
+{% include "footer.html" %}

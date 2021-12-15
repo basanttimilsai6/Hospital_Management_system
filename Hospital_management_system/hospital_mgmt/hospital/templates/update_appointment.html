@@ -1,0 +1,71 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+
+   
+
+
+
+
+      <div class="container">
+        <h2>ADD APPOINTMENT</h2>
+        <hr>
+        
+         <form action="{{doc.id}}" method = 'POST'>
+         {% csrf_token %}
+
+         <div class="form-group">
+            <label for="" >Choose a Doctor:</label>
+                
+                <select class="form-control" name="doctor">
+                    {% for i in doctor %}
+                    <option value="{{i.name}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+         </div>
+
+
+          <div class="form-group">
+            <label for="patient">Choose a Patient:</label>
+                
+                <select class="form-control" name="patient">
+                    {% for i in patient %}
+                    <option value="{{i.name}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+                
+          </div>
+          <div class="form-group">
+            <label for="">Date</label>
+            <input type="date" name="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Time</label>
+            <input type="time" name="time" class="form-control">
+          </div>
+          {% comment %} <a href="{% url 'add' %}" class="btn btn-primary my-2">Add</a> {% endcomment %}
+          <button type="submit" class="btn btn-success my-2">UPDATE</button>
+          <a href="{% url 'view_appointment' %}" class="btn btn-primary my-2">SHOW</a>
+        
+        </form>
+        </div>
+{% include 'footer.html' %}
+{% endblock content %}
